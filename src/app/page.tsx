@@ -1,5 +1,6 @@
 import React from "react";
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 const LandingPage = () => (
   <main className="flex flex-col min-h-screen">
@@ -20,7 +21,9 @@ const LandingPage = () => (
           Discover your pathway to a cleaner, greener future with personalized
           electric vehicle recommendations.
         </p>
-        <Button className="mt-4">Get Started</Button>
+        <Link href="/login">
+          <Button className="mt-4">Get Started</Button>
+        </Link>
       </div>
     </section>
 
