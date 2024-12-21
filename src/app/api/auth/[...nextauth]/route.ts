@@ -11,41 +11,64 @@ const handler = NextAuth({
       clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
     }),
   ],
-  pages: {
-    signIn: "/login",
-    error: "/login",
-    newUser: "/signup", // Add this to redirect new users
-  },
-  session: {
-    strategy: "jwt",
-  },
   callbacks: {
     async jwt({ token, user }) {
       if (user) {
-        token.id = user.id; // To access user id later
+        token.id = user.id;
+        token.hasRegister = user.hasRegister;
+        token.country = user.country;
       }
       return token;
     },
     async session({ session, token }) {
       if (session.user) {
-        session.user.id = token.id;
+        session.user.id = token.id as string;
+        session.user.hasRegister = token.hasRegister as boolean;
+        session.user.country = token.country as string;
       }
       return session;
     },
     async signIn({ account, profile }) {
       if (account?.provider === "google") {
-        // Check if user exists
-        const existingUser = await prisma.user.findUnique({
+        let user = await prisma.user.findUnique({
           where: { email: profile?.email },
         });
 
-        if (!existingUser) {
-          // Redirect to signup if user doesn't exist
-          return `/signup?email=${profile?.email}`;
+        if (!user) {
+          user = await prisma.user.create({
+            data: {
+              email: profile?.email!,
+              name: profile?.name!,
+              country: "",
+              hasRegister: false,
+              accounts: {
+                create: {
+                  provider: account.provider,
+                  providerAccountId: account.providerAccountId,
+                  type: account.type,
+                  access_token: account.access_token,
+                  token_type: account.token_type,
+                  id_token: account.id_token,
+                  scope: account.scope,
+                },
+              },
+            },
+          });
         }
-      }
 
-      return true; // Continue sign-in process
+        // Always return true to establish the session
+        return true;
+      }
+      return true;
+    },
+  },
+  events: {
+    async signIn({ user }) {
+      // Check if user needs to complete registration
+      if (!user?.hasRegister) {
+        // We'll handle the redirect on the client side
+        user.needsRegistration = true;
+      }
     },
   },
 });

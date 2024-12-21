@@ -1,14 +1,11 @@
-// Example for a protected dashboard route
-// src/app/(dashboard)/dashboard/page.tsx
-import { useSession, signIn } from "next-auth/react";
+import { getServerSession } from "next-auth";
+import { redirect } from "next/navigation";
 
-const DashboardPage = () => {
-  const { data: session, status } = useSession();
+const DashboardPage = async () => {
+  const session = await getServerSession();
 
-  if (status === "loading") return <div>Loading...</div>;
   if (!session) {
-    signIn(); // Redirect to login if not authenticated
-    return null; // Add a loading state or similar UI
+    redirect("/login");
   }
 
   return (
