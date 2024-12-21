@@ -1,14 +1,29 @@
 "use client";
 
-import { signIn } from "next-auth/react";
+import { signIn, useSession } from "next-auth/react";
 import { useSearchParams, useRouter } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function LoginPage() {
   const router = useRouter();
+  const { data: session, status } = useSession();
+
   const searchParams = useSearchParams();
   const error = searchParams.get("error");
   const [isLoading, setIsLoading] = useState(false);
+
+  useEffect(() => {
+    if (session?.user) {
+      // If user needs to complete registration, redirect to signup
+      if (!session.user?.hasRegister) {
+        router.push(
+          `/signup?email=${session.user.email}&name=${session.user.name}`
+        );
+      } else {
+        router.push("/dashboard");
+      }
+    }
+  }, [session, router]);
 
   const handleGoogleSignIn = async () => {
     try {
