@@ -7,7 +7,4 @@ const axiosClient = axios.create({
   },
 });
 
-// Add response interceptor for error handling
-axiosClient.interceptors.response.use((response) => response.data);
-
 export default axiosClient;
