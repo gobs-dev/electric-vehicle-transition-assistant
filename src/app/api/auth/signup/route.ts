@@ -1,25 +1,25 @@
-import { NextResponse } from "next/server";
 import prisma from "@/lib/prisma";
+import { NextRequest, NextResponse } from "next/server";
 
-export async function POST(request: Request) {
+export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
-    const { name, country, email } = body;
+    const { email, name, country, firebaseUid } = body;
 
-    const user = await prisma.user.update({
-      where: { email },
+    const user = await prisma.user.create({
       data: {
+        firebaseUid,
+        email,
         name,
         country,
-        hasRegister: true,
       },
     });
 
-    return NextResponse.json({ user });
+    return NextResponse.json(user);
   } catch (error) {
-    console.error("Signup error:", error);
+    console.log("update user error:", error);
     return NextResponse.json(
-      { error: "Failed to create user" },
+      { error: "Failed to update user" },
       { status: 500 }
     );
   }

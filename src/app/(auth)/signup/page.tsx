@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Button } from "@/components/ui/button";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 import {
   Form,
   FormControl,
@@ -19,11 +19,12 @@ import COUNTRY_BY_CURRENCY from "@/constants/country-by-currency";
 import { useMutation } from "@tanstack/react-query";
 import axiosClient from "@/lib/axiosClient";
 import { useToast } from "@/hooks/use-toast";
+import { useAuth } from "@/contexts/auth";
+import { useEffect } from "react";
 
 const signupSchema = z.object({
   name: z.string().min(1, "Name is required"),
   country: z.string().min(1, "Country is required"),
-  email: z.string().email("Invalid email address"),
 });
 
 const countries = COUNTRY_BY_CURRENCY.map((item) => item.country);
@@ -33,34 +34,42 @@ type SignupFormData = z.infer<typeof signupSchema>;
 const SignupPage = () => {
   const router = useRouter();
   const { toast } = useToast();
-  const searchParams = useSearchParams();
-  const emailFromGoogle = searchParams.get("email");
-  const nameFromGoogle = searchParams.get("name");
-
+  const { firebaseUser, isLoading, isLoggedIn, user, saveUser } = useAuth();
+  console.log("user", user);
   const form = useForm<SignupFormData>({
     resolver: zodResolver(signupSchema),
     defaultValues: {
-      email: emailFromGoogle || "",
-      name: nameFromGoogle || "",
+      name: firebaseUser?.name || "",
     },
   });
 
+  useEffect(() => {
+    if (isLoading) return;
+
+    if (!isLoggedIn) router.replace("/login");
+
+    if (user) router.replace("/dashboard");
+  }, [isLoggedIn, user, isLoading, router]);
+
   const signupMutation = useMutation({
-    mutationFn: async (data) => {
-      axiosClient.post("/api/auth/signup", data);
-    },
-    onSuccess: async () => {
+    mutationFn: async (data: SignupFormData) =>
+      axiosClient.post("/auth/signup", {
+        ...data,
+        firebaseUid: firebaseUser?.firebaseUserId,
+        email: firebaseUser?.email,
+      }),
+    onSuccess: async (res) => {
+      console.log("res", res);
+      saveUser(res.data);
       toast({ title: "Account created successfully!" });
-      router.push("/dashboard");
     },
     onError: (error) => {
       toast({ title: error.message || "Failed to create account" });
     },
   });
 
-  const handleSignup = async (data: SignupFormData) => {
+  const handleSignup = async (data: SignupFormData) =>
     signupMutation.mutate(data);
-  };
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
@@ -97,19 +106,6 @@ const SignupPage = () => {
                       placeholder="Select your country"
                       value={field.value}
                     />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name="email"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Email</FormLabel>
-                  <FormControl>
-                    <Input placeholder="-" type="text" disabled {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>

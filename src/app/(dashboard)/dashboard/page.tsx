@@ -1,18 +1,15 @@
-import { getServerSession } from "next-auth";
-import { redirect } from "next/navigation";
+"use client";
 
-const DashboardPage = async () => {
-  const session = await getServerSession();
+import AuthGuardLayout from "@/components/layout/AuthGuardLayout";
 
-  if (!session) {
-    redirect("/login");
-  }
-
+const DashboardPage = () => {
   return (
-    <div>
-      <h1 className="text-3xl">Welcome, {session.user?.name}</h1>
-      {/* Rest of your dashboard components */}
-    </div>
+    <AuthGuardLayout>
+      <div>
+        <h1 className="text-3xl">Welcome, </h1>
+        {/* Rest of your dashboard components */}
+      </div>
+    </AuthGuardLayout>
   );
 };
 
