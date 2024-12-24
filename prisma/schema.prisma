@@ -9,6 +9,17 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+model User {
+  id          String   @id @default(cuid())
+  firebaseUid String   @unique @db.VarChar(255)
+  name        String
+  email       String
+  country     String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
 }
