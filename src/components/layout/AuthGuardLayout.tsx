@@ -44,7 +44,11 @@ const AuthGuardLayout: React.FC<AuthGuardLayoutProps> = ({
     (requireAuth && !user) ||
     (!requireAuth && user && redirectAuthenticatedTo)
   ) {
-    return <LoaderCircle />;
+    return (
+      <div className="flex justify-center items-center min-h-screen">
+        <LoaderCircle className="h-8 w-8 animate-spin text-primary" />
+      </div>
+    );
   }
 
   return children;
