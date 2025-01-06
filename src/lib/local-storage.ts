@@ -14,6 +14,7 @@ const getAvailableEvList = () => getStorage(AVAILABLE_EV_LIST_KEY);
 
 const setStorageCars = (name: string, car: object) => {
   if (!window) return;
+
   const cars = getStorageCars() || {};
   cars[name] = car;
   window.localStorage.setItem(EV_CARS_KEY, JSON.stringify(cars));
@@ -21,6 +22,7 @@ const setStorageCars = (name: string, car: object) => {
 
 const setStorageAvailableEvList = (evList: string[]) => {
   if (!window) return;
+
   window.localStorage.setItem(AVAILABLE_EV_LIST_KEY, JSON.stringify(evList));
 };
 

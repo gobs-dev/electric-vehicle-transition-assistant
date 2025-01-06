@@ -65,7 +65,10 @@ const SignupPage = () => {
     <AuthGuardLayout>
       <div className="flex items-center justify-center min-h-screen bg-gray-100">
         <div className="bg-white p-6 rounded shadow-md w-full max-w-md">
-          <h1 className="text-2xl font-bold mb-4">Sign Up</h1>
+          <h1 className="text-2xl font-bold mb-2">Sign Up</h1>
+          <p className="text-base font-bold mb-4">
+            Please fill form below to continue using the app.
+          </p>
           <Form {...form}>
             <form
               onSubmit={form.handleSubmit(handleSignup)}

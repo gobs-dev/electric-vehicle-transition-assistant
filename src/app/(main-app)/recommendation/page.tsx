@@ -9,9 +9,8 @@ import AI_ACTION from "@/constants/ai-action";
 import axiosClient from "@/lib/axiosClient";
 import Spinner from "@/components/ui/spinner";
 import { CarRecommendationType } from "@/types/car";
-import AuthGuardLayout from "@/components/layout/AuthGuardLayout";
 
-export default function RecommendationCar() {
+export default function Recommendation() {
   const [recommendationCars, setRecommendationCars] =
     useState<CarRecommendationType[]>();
   const { toast } = useToast();
@@ -30,7 +29,6 @@ export default function RecommendationCar() {
     onSuccess: (response) => {
       try {
         const result = response.data.data.outputs?.result;
-
         setRecommendationCars(result);
       } catch (error) {
         console.error(error);
@@ -54,17 +52,13 @@ export default function RecommendationCar() {
   if (!recommendationCars) return <Spinner className="h-screen" />;
 
   return (
-    <AuthGuardLayout>
-      <div className="container mx-auto px-4 py-8">
-        <h1 className="text-3xl font-bold text-center mb-8">
-          Recommended Cars
-        </h1>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {recommendationCars.map((car, index) => (
-            <CarRecommendationCard key={index} {...car} />
-          ))}
-        </div>
+    <div className="container mx-auto px-4 py-8">
+      <h1 className="text-3xl font-bold text-center mb-8">Recommended Cars</h1>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {recommendationCars.map((car, index) => (
+          <CarRecommendationCard key={index} {...car} />
+        ))}
       </div>
-    </AuthGuardLayout>
+    </div>
   );
 }
