@@ -49,7 +49,6 @@ export default function CompareCar() {
 
   const handleFetchCarList = () => {
     const evList = getAvailableEvList();
-    console.log("evList", evList);
     if (evList) return setEvCarList(evList);
 
     fetchEvCarList.mutate();

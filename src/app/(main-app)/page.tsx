@@ -19,7 +19,6 @@ const MainApp = () => {
   const { user } = useAuth();
   const [carData, setCarData] = useState<CarDetailType>();
   const { toast } = useToast();
-  console.log("carData", carData);
   const fetchMyCar = useMutation({
     mutationFn: () =>
       axiosClient.post("https://api.dify.ai/v1/workflows/run", {

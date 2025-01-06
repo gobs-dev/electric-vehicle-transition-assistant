@@ -7,18 +7,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-
-interface CarRecommendationProps {
-  image: string;
-  make: string;
-  model: string;
-  battery_capacity_kWh: number;
-  range_km: number | string;
-  charging_time_hours: number;
-  price: string;
-  key_features: string[];
-  environmental_impact: string;
-}
+import { CarRecommendationType } from "@/types/car";
 
 export function CarRecommendationCard({
   image,
@@ -30,12 +19,12 @@ export function CarRecommendationCard({
   price,
   key_features,
   environmental_impact,
-}: CarRecommendationProps) {
+}: CarRecommendationType) {
   return (
     <Card className="w-full max-w-sm mx-auto overflow-hidden transition-all duration-300 transform hover:scale-105 hover:shadow-xl">
       <CardHeader className="p-0">
         <img
-          src={image}
+          src={image.thumbnail || image.image}
           alt={`${make} ${model}`}
           width={400}
           height={300}

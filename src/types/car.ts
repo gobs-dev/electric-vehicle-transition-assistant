@@ -5,16 +5,18 @@ interface CostBreakdown {
   ev_incentives: string;
 }
 
+interface ImageType {
+  title: string;
+  image: string;
+  thumbnail: string;
+  url: string;
+  height: number;
+  width: number;
+  source: string;
+}
+
 export interface CarDetailType {
-  image: {
-    title: string;
-    image: string;
-    thumbnail: string;
-    url: string;
-    height: number;
-    width: number;
-    source: string;
-  };
+  image: ImageType;
   purchase_price: string;
   efficiency: string;
   monthly_operating_costs: string;
@@ -36,4 +38,16 @@ export interface CarDetailType {
       home_installation: string;
     };
   };
+}
+
+export interface CarRecommendationType {
+  image: ImageType;
+  make: string;
+  model: string;
+  battery_capacity_kWh: number;
+  range_km: number | string;
+  charging_time_hours: number;
+  price: string;
+  key_features: string[];
+  environmental_impact: string;
 }
