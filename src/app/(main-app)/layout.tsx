@@ -17,13 +17,13 @@ const AppLayout = ({ children }) => {
 
   return (
     <>
-      <header className="bg-blue-500 px-4 py-2">
-        <h1 className="text-3xl text-white">EV Transition</h1>
+      <header className="bg-blue-500 px-4 py-3">
+        <h1 className="text-3xl text-white font-semibold">EV Transition</h1>
       </header>
       <main className="pb-20 px-4">
         {children}
         <nav className="fixed bottom-0 left-0 right-0 z-50 bg-background border-t border-border">
-          <div className="flex justify-around items-center h-16 px-4">
+          <div className="flex justify-around items-center h-16">
             {navItems.map((item) => {
               const isActive = pathname === item.href;
               return (

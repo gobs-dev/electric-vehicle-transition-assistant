@@ -56,7 +56,7 @@ const MainApp = () => {
   };
 
   useEffect(() => {
-    handleFetchMyCar();
+    if (user) handleFetchMyCar();
   }, []);
 
   return (
