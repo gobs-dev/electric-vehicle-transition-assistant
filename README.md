@@ -67,9 +67,17 @@ A sophisticated web application that helps car owners make informed decisions ab
 - React Query for data fetching
 - React Hook Form for form handling
 
-## 🎥 Demo
+## VIDEO DEMO
 
-[Insert demo video here]
+- [https://drive.google.com/drive/folders/1niNfuL4GdvH5NzAzxBj6SibPpuC_4mC-?usp=sharing](https://drive.google.com/drive/folders/1niNfuL4GdvH5NzAzxBj6SibPpuC_4mC-?usp=sharing)
+
+## DEMO APP
+
+- [https://electric-vehicle-transition-assistant.vercel.app/](https://electric-vehicle-transition-assistant.vercel.app/)
+
+## DIFY APP
+
+- [https://cloud.dify.ai/app/e0d8b85a-1d55-4049-ad95-3f7d488a4335/workflow](https://cloud.dify.ai/app/e0d8b85a-1d55-4049-ad95-3f7d488a4335/workflow)
 
 ## 🌟 Unique Value Proposition
 
@@ -89,15 +97,3 @@ A sophisticated web application that helps car owners make informed decisions ab
    - Detailed emissions analysis
    - Environmental benefit calculations
    - Carbon footprint comparison
-
-## VIDEO DEMO
-
-- [https://drive.google.com/drive/folders/1niNfuL4GdvH5NzAzxBj6SibPpuC_4mC-?usp=sharing](https://drive.google.com/drive/folders/1niNfuL4GdvH5NzAzxBj6SibPpuC_4mC-?usp=sharing)
-
-## DEMO APP
-
-- [https://electric-vehicle-transition-assistant.vercel.app/](https://electric-vehicle-transition-assistant.vercel.app/)
-
-## DIFY APP
-
-- [https://cloud.dify.ai/app/e0d8b85a-1d55-4049-ad95-3f7d488a4335/workflow](https://cloud.dify.ai/app/e0d8b85a-1d55-4049-ad95-3f7d488a4335/workflow)
