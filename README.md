@@ -90,10 +90,10 @@ A sophisticated web application that helps car owners make informed decisions ab
    - Environmental benefit calculations
    - Carbon footprint comparison
 
-## DEMO PREVIEW
+## VIDEO DEMO
 
 - [https://drive.google.com/drive/folders/1niNfuL4GdvH5NzAzxBj6SibPpuC_4mC-?usp=sharing](https://drive.google.com/drive/folders/1niNfuL4GdvH5NzAzxBj6SibPpuC_4mC-?usp=sharing)
 
-## DEMO LINKS
+## DEMO APP
 
 - [https://electric-vehicle-transition-assistant.vercel.app/](https://electric-vehicle-transition-assistant.vercel.app/)
