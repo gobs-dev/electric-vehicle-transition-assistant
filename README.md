@@ -1,36 +1,99 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# EV Transition Assistant
 
-## Getting Started
+A sophisticated web application that helps car owners make informed decisions about transitioning from traditional vehicles to electric vehicles (EVs) by providing detailed cost analysis, environmental impact assessments, and personalized recommendations.
 
-First, run the development server:
+## 🎯 Target Audience & Problem Statement
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+**For:** Car owners considering the switch to electric vehicles
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+**Problem:** Many people are interested in switching to EVs but face uncertainty due to:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- Difficulty in comparing true costs between ICE vehicles and EVs
+- Lack of understanding about environmental impact
+- Uncertainty about charging infrastructure and practicality
+- Complex financial considerations including incentives and long-term costs
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+**Solution:** Our application provides:
 
-## Learn More
+- Detailed cost analysis of current vehicle
+- Personalized EV recommendations
+- Side-by-side comparisons
+- Long-term cost projections
+- Environmental impact assessment
+- Charging infrastructure insights
 
-To learn more about Next.js, take a look at the following resources:
+## 🚀 Key Features
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. **Personalized Dashboard**
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+   - Detailed analysis of current vehicle
+   - Monthly and annual cost breakdowns
+   - Environmental impact metrics
+   - 5-year cost projections
 
-## Deploy on Vercel
+2. **EV Recommendations**
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+   - AI-powered vehicle suggestions based on user preferences
+   - Detailed specifications and features
+   - Cost-benefit analysis
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+3. **Comparison Tool**
+
+   - Side-by-side comparison of current vehicle with EVs
+   - Comprehensive metrics including:
+     - Purchase price
+     - Operating costs
+     - Environmental impact
+     - Charging requirements
+     - Available incentives
+
+4. **Cost Analysis**
+   - Purchase price comparison
+   - Monthly operating costs
+   - Maintenance expenses
+   - Fuel/electricity costs
+   - Resale value projections
+   - Break-even point calculations
+
+## 💻 Technical Implementation
+
+### Tech Stack
+
+- Next.js 14 (App Router)
+- TypeScript
+- Tailwind CSS
+- Shadcn UI
+- Dify.ai for AI-powered analysis
+- React Query for data fetching
+- React Hook Form for form handling
+
+## 🎥 Demo
+
+[Insert demo video here]
+
+## 🌟 Unique Value Proposition
+
+1. **AI-Powered Analysis**
+
+   - Utilizes Dify.ai for intelligent vehicle analysis
+   - Personalized recommendations based on user patterns
+   - Real-time cost comparisons
+
+2. **Comprehensive Cost Analysis**
+
+   - Total cost of ownership calculations
+   - Hidden cost revelations
+   - Future cost projections
+
+3. **Environmental Impact**
+   - Detailed emissions analysis
+   - Environmental benefit calculations
+   - Carbon footprint comparison
+
+## DEMO PREVIEW
+
+- [https://drive.google.com/file/d/1OYpmklPnWu5JDZgBUqf6pES_RckxcCt3/view?usp=sharing](https://drive.google.com/file/d/1OYpmklPnWu5JDZgBUqf6pES_RckxcCt3/view?usp=sharing)
+
+## DEMO LINKS
+
+- [https://aizen.cloud-ind.my.id/](https://aizen.cloud-ind.my.id/)
