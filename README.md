@@ -97,3 +97,7 @@ A sophisticated web application that helps car owners make informed decisions ab
 ## DEMO APP
 
 - [https://electric-vehicle-transition-assistant.vercel.app/](https://electric-vehicle-transition-assistant.vercel.app/)
+
+## DIFY APP
+
+- [https://cloud.dify.ai/app/e0d8b85a-1d55-4049-ad95-3f7d488a4335/workflow](https://cloud.dify.ai/app/e0d8b85a-1d55-4049-ad95-3f7d488a4335/workflow)
