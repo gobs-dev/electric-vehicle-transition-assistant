@@ -34,6 +34,7 @@ export default function CompareCar() {
         setStorageAvailableEvList(parsedData);
         setEvCarList(parsedData);
       } catch (error) {
+        console.error(error);
         toast({
           title: "Failed to parse ev car list",
           variant: "destructive",

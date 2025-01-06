@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { Car, Scale, Lightbulb } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
+import { PropsWithChildren } from "react";
 
 const navItems = [
   { name: "My Car", icon: Car, href: "/" },
@@ -12,7 +13,7 @@ const navItems = [
   { name: "Recommendation Car", icon: Lightbulb, href: "/recommendation" },
 ];
 
-const AppLayout = ({ children }) => {
+const AppLayout = ({ children }: PropsWithChildren) => {
   const pathname = usePathname();
 
   return (

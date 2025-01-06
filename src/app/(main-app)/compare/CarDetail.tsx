@@ -51,6 +51,7 @@ export default function CarDetailPage({
 
         setCarDetail(result);
       } catch (error) {
+        console.error(error);
         toast({
           title: "Failed to parse ev car list",
           variant: "destructive",

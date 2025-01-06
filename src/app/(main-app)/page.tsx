@@ -33,6 +33,7 @@ const MainApp = () => {
         if (user?.car) setStorageCars(user.car, result);
         setCarData(result);
       } catch (error) {
+        console.error(error);
         toast({
           title: "Failed to parse car data",
           variant: "destructive",
@@ -65,7 +66,7 @@ const MainApp = () => {
         <div className="container mx-auto p-6 space-y-6">
           {/* Title Section */}
           <div className="space-y-2">
-            <h1 className="text-3xl font-bold tracking-tight">{user.car}</h1>
+            <h1 className="text-3xl font-bold tracking-tight">{user?.car}</h1>
             <p className="text-muted-foreground">
               Detailed analysis and cost breakdown of your vehicle
             </p>

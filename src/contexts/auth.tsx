@@ -37,11 +37,11 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
   const [user, setUser] = useState<User | null>(() => {
+    if (!window) return null;
     const userStorage = window.localStorage.getItem(USER_KEY_STORAGE);
 
     return userStorage ? JSON.parse(userStorage) : null;
   });
-  const [isLoading, setIsLoading] = useState(false);
   const { toast } = useToast();
 
   const clearAuthState = useCallback(() => {

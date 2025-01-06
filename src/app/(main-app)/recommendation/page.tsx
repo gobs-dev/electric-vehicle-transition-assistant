@@ -13,7 +13,7 @@ import AuthGuardLayout from "@/components/layout/AuthGuardLayout";
 
 export default function RecommendationCar() {
   const [recommendationCars, setRecommendationCars] =
-    useState<Array<CarRecommendationType>>();
+    useState<CarRecommendationType[]>();
   const { toast } = useToast();
   const { user } = useAuth();
 
@@ -33,6 +33,7 @@ export default function RecommendationCar() {
 
         setRecommendationCars(result);
       } catch (error) {
+        console.error(error);
         toast({
           title: "Failed to recommendation car",
           variant: "destructive",
