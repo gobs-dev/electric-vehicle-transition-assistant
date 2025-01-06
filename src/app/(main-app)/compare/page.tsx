@@ -20,7 +20,7 @@ export default function CompareCar() {
   const { toast } = useToast();
   const fetchEvCarList = useMutation({
     mutationFn: () =>
-      axiosClient.post("https://api.dify.ai/v1/workflows/run", {
+      axiosClient.post("/workflows/run", {
         inputs: { ...user, action: AI_ACTION.listAvailableEvCar },
         response_mode: "blocking",
         user: user?.name,

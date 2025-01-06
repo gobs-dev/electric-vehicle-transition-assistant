@@ -19,7 +19,7 @@ export default function RecommendationCar() {
 
   const fetchRecommendationCars = useMutation({
     mutationFn: () =>
-      axiosClient.post("https://api.dify.ai/v1/workflows/run", {
+      axiosClient.post("/workflows/run", {
         inputs: {
           ...user,
           action: AI_ACTION.recommendationCar,

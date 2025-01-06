@@ -21,7 +21,7 @@ const MainApp = () => {
   const { toast } = useToast();
   const fetchMyCar = useMutation({
     mutationFn: () =>
-      axiosClient.post("https://api.dify.ai/v1/workflows/run", {
+      axiosClient.post("/workflows/run", {
         inputs: { ...user, action: AI_ACTION.analyzeIceCar },
         response_mode: "blocking",
         user: user?.name,
