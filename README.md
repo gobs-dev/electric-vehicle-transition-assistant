@@ -92,8 +92,8 @@ A sophisticated web application that helps car owners make informed decisions ab
 
 ## DEMO PREVIEW
 
-- [https://drive.google.com/file/d/1OYpmklPnWu5JDZgBUqf6pES_RckxcCt3/view?usp=sharing](https://drive.google.com/file/d/1OYpmklPnWu5JDZgBUqf6pES_RckxcCt3/view?usp=sharing)
+- [https://drive.google.com/drive/folders/1niNfuL4GdvH5NzAzxBj6SibPpuC_4mC-?usp=sharing](https://drive.google.com/drive/folders/1niNfuL4GdvH5NzAzxBj6SibPpuC_4mC-?usp=sharing)
 
 ## DEMO LINKS
 
-- [https://aizen.cloud-ind.my.id/](https://aizen.cloud-ind.my.id/)
+- [https://electric-vehicle-transition-assistant.vercel.app/](https://electric-vehicle-transition-assistant.vercel.app/)
